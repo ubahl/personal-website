@@ -8,10 +8,15 @@ type Metadata = {
   image?: string
 }
 
-function parseFrontmatter(fileContent: string) {
+function parseFrontmatter(fileContent: string, filePath?: string) {
   let frontmatterRegex = /---\s*([\s\S]*?)\s*---/
   let match = frontmatterRegex.exec(fileContent)
-  let frontMatterBlock = match![1]
+  if (!match) {
+    throw new Error(
+      `Invalid or missing frontmatter in MDX file${filePath ? `: ${filePath}` : ''}`
+    )
+  }
+  let frontMatterBlock = match[1]
   let content = fileContent.replace(frontmatterRegex, '').trim()
   let frontMatterLines = frontMatterBlock.trim().split('\n')
   let metadata: Partial<Metadata> = {}
@@ -32,7 +37,7 @@ function getMDXFiles(dir) {
 
 function readMDXFile(filePath) {
   let rawContent = fs.readFileSync(filePath, 'utf-8')
-  return parseFrontmatter(rawContent)
+  return parseFrontmatter(rawContent, filePath)
 }
 
 function getMDXData(dir) {
