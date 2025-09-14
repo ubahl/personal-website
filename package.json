@@ -3,7 +3,9 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "optimize:images": "node scripts/optimize-images.js --dir=public/images --maxWidth=1600 --quality=80 --convertPng=true --updateMdx=true",
+    "prebuild": "pnpm optimize:images"
   },
   "dependencies": {
     "@tailwindcss/postcss": "4.0.0-alpha.13",
