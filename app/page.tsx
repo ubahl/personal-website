@@ -1,17 +1,16 @@
+import fs from 'fs'
+import path from 'path'
+import { CustomMDX } from 'app/components/mdx'
+
 export default function Page() {
+  const mdxPath = path.join(process.cwd(), 'app', 'home', 'content.mdx')
+  const source = fs.readFileSync(mdxPath, 'utf-8')
+
   return (
     <section>
-      <h1 className="mb-8 text-2xl font-semibold tracking-tighter">
-        My Portfolio
-      </h1>
-      <p className="mb-4">
-        {`I'm a Vim enthusiast and tab advocate, finding unmatched efficiency in
-        Vim's keystroke commands and tabs' flexibility for personal viewing
-        preferences. This extends to my support for static typing, where its
-        early error detection ensures cleaner code, and my preference for dark
-        mode, which eases long coding sessions by reducing eye strain.`}
-      </p>
-      {/* Blog post list removed; accessible via Blog tab */}
+      <article className="prose">
+        <CustomMDX source={source} />
+      </article>
     </section>
   )
 }
