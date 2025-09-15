@@ -46,7 +46,12 @@ function CustomLink(props) {
 }
 
 function RoundedImage(props) {
-  return <Image alt={props.alt} className="rounded-lg" {...props} />
+  // Wrap in a block with vertical margin so spacing applies outside Next/Image wrapper
+  return (
+    <div className="my-4">
+      <Image alt={props.alt} className="rounded-lg" {...props} />
+    </div>
+  )
 }
 
 function Code({ children, ...props }) {
