@@ -4,6 +4,7 @@ import { MDXRemote } from 'next-mdx-remote/rsc'
 import { highlight } from 'sugar-high'
 import React from 'react'
 import { BlogCollage } from './collage'
+import { Projects, Project } from './projects'
 
 function Table({ data }) {
   let headers = data.headers.map((header, index) => (
@@ -104,6 +105,8 @@ let components = {
   code: Code,
   Table,
   BlogCollage,
+  Projects,
+  Project,
 }
 
 export function CustomMDX(props) {
