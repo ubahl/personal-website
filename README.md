@@ -1,42 +1,45 @@
-# Portfolio Blog Starter
+# Uma Bahl – Personal Website
 
-This is a porfolio site template complete with a blog. Includes:
+Personal site built with Next.js and MDX featuring a blog, curated projects, and experiments. It tracks posts, talks, and other updates while staying lightweight and fast.
 
-- MDX and Markdown support
-- Optimized for SEO (sitemap, robots, JSON-LD schema)
-- RSS Feed
-- Dynamic OG images
-- Syntax highlighting
-- Tailwind v4
-- Vercel Speed Insights / Web Analytics
-- Geist font
+## Tech Stack
 
-## Demo
+- Next.js 15 (App Router) with React 19
+- TypeScript + Tailwind CSS v4
+- MDX content for home, blog, and projects
+- Vercel Analytics & Speed Insights
+- Custom components for post previews, project cards, and image collage
 
-https://portfolio-blog-starter.vercel.app
-
-## How to Use
-
-You can choose from one of the following two methods to use this repository:
-
-### One-Click Deploy
-
-Deploy the example using [Vercel](https://vercel.com?utm_source=github&utm_medium=readme&utm_campaign=vercel-examples):
-
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/vercel/examples/tree/main/solutions/blog&project-name=blog&repository-name=blog)
-
-### Clone and Deploy
-
-Execute [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) with [pnpm](https://pnpm.io/installation) to bootstrap the example:
+## Local Development
 
 ```bash
-pnpm create next-app --example https://github.com/vercel/examples/tree/main/solutions/blog blog
-```
+# install dependencies
+pnpm install
 
-Then, run Next.js in development mode:
-
-```bash
+# start the dev server
 pnpm dev
+
+# type-check
+pnpm exec tsc --noEmit
 ```
 
-Deploy it to the cloud with [Vercel](https://vercel.com/templates) ([Documentation](https://nextjs.org/docs/app/building-your-application/deploying)).
+Blog posts live in `app/blog`, project content in `app/projects/content.mdx`, and home page copy in `app/home/content.mdx`. Favicon and OG assets live under `app/icon.svg` and `public/images`.
+
+## Deployment
+
+The site deploys to Vercel. Pushes to `main` automatically build and deploy via the connected project. You can trigger a local build with:
+
+```bash
+pnpm build
+```
+
+Then deploy using the [Vercel CLI](https://vercel.com/docs/cli) (`vercel --prod`) or the Vercel dashboard.
+
+## Customization Notes
+
+- Update metadata defaults (title, OG info) in `app/layout.tsx`
+- Project cards are defined in `app/components/projects.tsx`
+- Posts collage component lives in `app/components/collage.tsx`
+- RSS + sitemap generation handled in `app/rss` and `app/sitemap.ts`
+
+Originally forked from the [Vercel portfolio/blog starter](https://vercel.com/templates/next.js/portfolio-blog-starter).
