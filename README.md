@@ -42,4 +42,4 @@ Then deploy using the [Vercel CLI](https://vercel.com/docs/cli) (`vercel --prod`
 - Posts collage component lives in `app/components/collage.tsx`
 - RSS + sitemap generation handled in `app/rss` and `app/sitemap.ts`
 
-Originally forked from the [Vercel portfolio/blog starter](https://vercel.com/templates/next.js/portfolio-blog-starter).
+Originally forked from the [Vercel portfolio/blog starter](https://vercel.com/templates/next.js/portfolio-starter-kit).

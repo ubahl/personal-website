@@ -1,0 +1,71 @@
+---
+title: 'Coding with Codex'
+publishedAt: '2025-09-17'
+summary: 'How I created a website without writing a single line of code.'
+---
+
+> I created and deployed this website in two days without writing a single line of code. Here's how.
+
+## 1. Choosing the Stack
+
+I asked ChatGPT which framework it recommends for a personal website. It recommended **Next.js** for the framework and **Vercel** for hosting. The combination offers server-side rendering, fast deploys, and zero-config analytics.
+
+
+## 2. Choosing Codex
+
+These days, I use ChatGPT for every question that runs through my head. Surprisingly, when I asked ChatGPT how I could use my Pro subscription to help me code, it did not recommend Codex. In fact, [it said that Codex was retired!](https://chatgpt.com/s/t_68cb8c6de5c081919b54a5fbd0b5bf4d)
+
+However, I saw the recent post from OpenAI introducing the [Codex](https://openai.com/codex/) web portal, CLI, and VS Code plugin. 
+
+I downloaded the VS Code plugin to try out an in-IDE development experience. 
+
+I also tried the web portal, which creates a cloud container and kicks off an asynchronous task. However, I liked the speed of local development changes, and I could make tweaks and instantly see them with a development server. 
+
+I haven't tried the Codex CLI yet, but I use the [Q CLI](https://aws.amazon.com/developer/learning/q-developer-cli/) daily and like the visualization and interactivity that the in-IDE assistant provides.
+
+## 3. Building with VS Code IDE Plugin
+
+I used the chat box in the plugin to suggest changes and ask implementation questions. 
+
+The agent would propose ideas, make recommendations, create file changes, and help debug.
+
+
+For example, it offered implementation options:
+
+
+```
+Me: I want to update the tab on my website. Can we add a little image?
+
+Assistant:
+Here are a few ways to add a “little image” that shows up around the tab or when sharing the site:
+
+Favicon (browser tab icon) – Create a small square image (usually 32×32 or 48×48), drop it in public/favicon.ico (or favicon.png), and export it in app/icon.tsx. Browsers show it next to the page title.
+Site icon / app manifest icon – Similar to the favicon but used for pinned tabs or on mobile home screens. Save a larger square PNG (192×192 or 512×512) in public/, then expose it via app/manifest.ts.
+Open Graph preview image – A 1200×630 hero image saved under public/images/ and referenced in metadata.openGraph.images inside app/layout.tsx. This is what sites like Slack/Twitter show when someone shares your URL.
+If you tell me which direction you like (or send the image file you want to use), I can wire it up.
+```
+
+It even helped make suggestions:
+
+```
+Me: I don’t really like how the project page looks right now
+
+Assistant: Happy to revamp it. Could you share what feels off—too plain, not enough visuals, needs better layout/structure? If you tell me the vibe or sections you’re aiming for (e.g., cards with images, tags, timelines), I can propose a concrete redesign.
+
+Me: Some cards could be nice. I also like how the title and formatting looks on the home page
+
+```
+
+## Conclusion
+
+This was my first time leaning heavily on an agent to build for me. 
+
+🎉 **Things I liked**
+
+* How fast I was able to iterate and deploy a working product
+* I didn't need to be an expert on web development to build a modern, high-performance website
+* I could learn from and bounce ideas off the agent 
+
+⚠️ **One possible drawback**
+
+I don't fully understand some of the changes it made, or how the framework works. This isn't difficult to solve: I can ask questions to the agent to get to a deeper understanding. I'm curious to see if this will be a problem going forward—stay tuned!
